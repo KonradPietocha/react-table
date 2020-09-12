@@ -1,13 +1,14 @@
 {
-  "main.css": "/react-table/static/css/main.1bc9012e.chunk.css",
-  "main.js": "/react-table/static/js/main.b2c3bcee.chunk.js",
-  "main.js.map": "/react-table/static/js/main.b2c3bcee.chunk.js.map",
+  "main.css": "/react-table/static/css/main.92a357fb.chunk.css",
+  "main.js": "/react-table/static/js/main.84af73a4.chunk.js",
+  "main.js.map": "/react-table/static/js/main.84af73a4.chunk.js.map",
   "runtime~main.js": "/react-table/static/js/runtime~main.15ef8938.js",
   "runtime~main.js.map": "/react-table/static/js/runtime~main.15ef8938.js.map",
-  "static/js/2.cc73383b.chunk.js": "/react-table/static/js/2.cc73383b.chunk.js",
-  "static/js/2.cc73383b.chunk.js.map": "/react-table/static/js/2.cc73383b.chunk.js.map",
+  "static/js/2.621c9d86.chunk.js": "/react-table/static/js/2.621c9d86.chunk.js",
+  "static/js/2.621c9d86.chunk.js.map": "/react-table/static/js/2.621c9d86.chunk.js.map",
   "index.html": "/react-table/index.html",
-  "precache-manifest.615bd636951b4bddfda2281fcb08db23.js": "/react-table/precache-manifest.615bd636951b4bddfda2281fcb08db23.js",
+  "precache-manifest.880e3a6e21eb7ea187606038487ff825.js": "/react-table/precache-manifest.880e3a6e21eb7ea187606038487ff825.js",
   "service-worker.js": "/react-table/service-worker.js",
-  "static/css/main.1bc9012e.chunk.css.map": "/react-table/static/css/main.1bc9012e.chunk.css.map"
+  "static/css/main.92a357fb.chunk.css.map": "/react-table/static/css/main.92a357fb.chunk.css.map",
+  "static/media/gold-gradient-background.png": "/react-table/static/media/gold-gradient-background.44159229.png"
 }
