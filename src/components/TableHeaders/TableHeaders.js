@@ -19,7 +19,7 @@ export default function TableHeader(props) {
                 style={style.header}
                 onClick={() => handleSorting("code")}
             >
-                Stock exchange data
+                Stock exchange date
                 {state.sortingKey === "code" ?
                     <Arrow sorting={state.sorting} />
                     : null
