@@ -12,9 +12,11 @@ function CurrencyPage(props) {
         handleSearch
     } = props;
 
-    for (const [key, value] of Object.entries(state.data.rates)) {
-        dataForTable.push({currencyCode: key, value: value});
-    }
+    if (state.data.rates) {
+        for (const [key, value] of Object.entries(state.data.rates)) {
+            dataForTable.push({currencyCode: key, value: value});
+        }
+    };
 
     return (
         <>
