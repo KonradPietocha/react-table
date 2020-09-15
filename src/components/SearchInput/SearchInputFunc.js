@@ -1,5 +1,6 @@
 export const searchTable = (state, searchValue, setState) => {
-    const stateArr = state.data;
+    const stateArr = state.data.rates;
+    console.log(stateArr);
     let newArr = [];
     let slicedArr = [];
     let object;
@@ -14,6 +15,7 @@ export const searchTable = (state, searchValue, setState) => {
     }
     let uniq = [...new Set(newArr)];
     slicedArr = uniq.slice(0, 10);
+    console.log(slicedArr);
     setState(state => ({ ...state, page: slicedArr }));
 };
 

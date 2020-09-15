@@ -7,6 +7,12 @@ const style = {
         cursor: "pointer",
         backgroundColor: "darkslategrey",
         color: "white"
+    },
+    headerLeft: {
+        borderTopLeftRadius: "25px"
+    },
+    headerRight: {
+        borderTopRightRadius: "25px"
     }
 };
 
@@ -16,7 +22,7 @@ export default function TableHeader(props) {
     return (
         <>
             <th
-                style={style.header}
+                style={{ ...style.header, ...style.headerLeft }}
                 onClick={() => handleSorting("code")}
             >
                 Stock exchange date
@@ -46,7 +52,7 @@ export default function TableHeader(props) {
                 }
             </th>
             <th
-                style={style.header}
+                style={{ ...style.header, ...style.headerRight }}
                 onClick={() => handleSorting("value")}
             >
                 Value
