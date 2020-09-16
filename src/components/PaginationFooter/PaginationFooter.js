@@ -43,7 +43,7 @@ export default function PaginationFooter(props) {
                 <div
                     style={style.footerPage}
                 >
-                    Page: {state.pageEnd / 10}
+                    Page: {state.page}
                 </div>
                 <div
                     style={{ ...style.footerBtns, ...style.footerRight }}

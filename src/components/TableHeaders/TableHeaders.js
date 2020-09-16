@@ -23,30 +23,30 @@ export default function TableHeader(props) {
         <>
             <th
                 style={{ ...style.header, ...style.headerLeft }}
-                onClick={() => handleSorting("code")}
+                onClick={() => handleSorting("date")}
             >
                 Stock exchange date
-                {state.sortingKey === "code" ?
+                {state.sortingKey === "date" ?
                     <Arrow sorting={state.sorting} />
                     : null
                 }
             </th>
             <th
                 style={style.header}
-                onClick={() => handleSorting("name")}
+                onClick={() => handleSorting("base")}
             >
                 Base currency
-                {state.sortingKey === "name" ?
+                {state.sortingKey === "base" ?
                     <Arrow sorting={state.sorting} />
                     : null
                 }
             </th>
             <th
                 style={style.header}
-                onClick={() => handleSorting("city")}
+                onClick={() => handleSorting("currencyCode")}
             >
                 Currency
-                {state.sortingKey === "city" ?
+                {state.sortingKey === "currencyCode" ?
                     <Arrow sorting={state.sorting} />
                     : null
                 }

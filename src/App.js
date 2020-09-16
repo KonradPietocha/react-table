@@ -6,9 +6,7 @@ import { urlCurrencyLatest } from './shared/urls';
 //functions
 import { getDataForTable } from './shared/functions/getDataForTable';
 import { fetchData } from './shared/functions/fetchData';
-// import { sortObjects } from './components/TableHeaders/TableHeadersFunc';
-// import { pagingTable } from './components/PaginationFooter/PaginationFooterFunc';
-// import { searchTable } from './components/SearchInput/SearchInputFunc';
+import { flipPage } from './shared/functions/flipPage';
 //images
 import gold from './images/gold-gradient-background.png';
 //style
@@ -22,8 +20,7 @@ function App() {
     //state*****************************************************************
     const [state, setState] = useState({
         data: sessionStorage.getItem("data") ? JSON.parse(sessionStorage.getItem("data")) : [],
-        page: [],
-        pageEnd: 10,
+        page: 1,
         sortingKey: null,
         sorting: null
     });
@@ -36,14 +33,13 @@ function App() {
     }, []);
 
     const handleSorting = rowKey => {
-        //sortObjects(state, rowKey, setState);
+        console.log(rowKey);
     };
     const handlePagination = paging => {
-        //pagingTable(state, paging, setState);
+        flipPage(paging, setState);
     };
     const handleSearch = event => {
-        // let searchValue = event.target.value;
-        // searchTable(state, searchValue, setState);
+        console.log(event);
     };
     //component********************************************************************
     return (
