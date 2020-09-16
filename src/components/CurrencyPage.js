@@ -1,8 +1,7 @@
 import React from 'react';
 //components
 import Table from './Table/Table';
-//variables
-const dataForTable = [];
+
 
 function CurrencyPage(props) {
     const {
@@ -12,6 +11,7 @@ function CurrencyPage(props) {
         handleSearch
     } = props;
 
+    const dataForTable = [];
     if (state.data.rates) {
         for (const [key, value] of Object.entries(state.data.rates)) {
             dataForTable.push({currencyCode: key, value: value});

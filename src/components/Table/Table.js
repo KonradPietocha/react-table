@@ -17,10 +17,14 @@ const style = {
 export default function Table(props) {
     const { arrayForTable, state, handleSorting, handlePagination, handleSearch } = props;
 
+    const rowsEnd = state.rowsPerPage * state.page;
+    const rowsStart = rowsEnd - state.rowsPerPage;
+
     return (
         <>
             <SearchInput
                 handleSearch={handleSearch}
+                arrayForTable={arrayForTable}
             />
             <table style={style.table}>
                 <thead>
@@ -32,7 +36,7 @@ export default function Table(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {arrayForTable.map((value, key) => (
+                    {arrayForTable.slice(rowsStart, rowsEnd).map((value, key) => (
                         <tr key={key}>
                             <td>{state.data.date}</td>
                             <td>{state.data.base}</td>
@@ -45,6 +49,7 @@ export default function Table(props) {
             <PaginationFooter
                 handlePagination={handlePagination}
                 state={state}
+                arrayLength={arrayForTable.length}
             />
         </>
     );

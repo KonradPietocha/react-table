@@ -8,7 +8,7 @@ const style = {
 };
 
 export default function SearchInput(props) {
-    const { handleSearch } = props;
+    const { handleSearch, arrayForTable } = props;
 
     return (
         <>
@@ -16,7 +16,7 @@ export default function SearchInput(props) {
                 <label>Search:
                     <input 
                         style={style.input}
-                        onKeyUp={event => handleSearch(event)}
+                        onKeyUp={event => handleSearch(event, arrayForTable)}
                     />
                 </label>
             </form>

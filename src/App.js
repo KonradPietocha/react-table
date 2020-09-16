@@ -21,6 +21,7 @@ function App() {
     const [state, setState] = useState({
         data: sessionStorage.getItem("data") ? JSON.parse(sessionStorage.getItem("data")) : [],
         page: 1,
+        rowsPerPage: 10,
         sortingKey: null,
         sorting: null
     });
@@ -35,11 +36,15 @@ function App() {
     const handleSorting = rowKey => {
         console.log(rowKey);
     };
-    const handlePagination = paging => {
-        flipPage(paging, setState);
+    const handlePagination = (paging, arrayLength) => {
+        flipPage(paging, setState, arrayLength);
     };
-    const handleSearch = event => {
-        console.log(event);
+    const handleSearch = (event, arrayForTable) => {
+        const searchText = event.target.value;
+        const result = arrayForTable.filter(o =>
+            Object.keys(o).some(k =>
+                o[k].toString().toLowerCase().indexOf(searchText) !== -1));
+        console.log(result);
     };
     //component********************************************************************
     return (

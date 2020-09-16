@@ -29,14 +29,14 @@ const style = {
 };
 
 export default function PaginationFooter(props) {
-    const { handlePagination, state } = props;
+    const { handlePagination, state, arrayLength } = props;
 
     return (
         <>
             <div style={style.footer}>
                 <div
                     style={{ ...style.footerBtns, ...style.footerLeft }}
-                    onClick={() => handlePagination("prev")}
+                    onClick={() => handlePagination("prev", arrayLength)}
                 >
                     Previous
                     </div>
@@ -47,7 +47,7 @@ export default function PaginationFooter(props) {
                 </div>
                 <div
                     style={{ ...style.footerBtns, ...style.footerRight }}
-                    onClick={() => handlePagination("next")}
+                    onClick={() => handlePagination("next", arrayLength)}
                 >
                     Next
                     </div>
