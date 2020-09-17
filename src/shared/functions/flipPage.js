@@ -1,5 +1,5 @@
 export const flipPage = (paging, setState, arrayLength) => {
-    const elementsAmount = arrayLength - 1;
+    const elementsAmount = arrayLength;
     const limit = Math.ceil(elementsAmount / 10);
     switch (paging) {
         case "prev":

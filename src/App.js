@@ -22,6 +22,7 @@ function App() {
         data: sessionStorage.getItem("data") ? JSON.parse(sessionStorage.getItem("data")) : [],
         page: 1,
         rowsPerPage: 10,
+        searchText: "",
         sortingKey: null,
         sorting: null
     });
@@ -39,12 +40,9 @@ function App() {
     const handlePagination = (paging, arrayLength) => {
         flipPage(paging, setState, arrayLength);
     };
-    const handleSearch = (event, arrayForTable) => {
-        const searchText = event.target.value;
-        const result = arrayForTable.filter(o =>
-            Object.keys(o).some(k =>
-                o[k].toString().toLowerCase().indexOf(searchText) !== -1));
-        console.log(result);
+    const handleSearch = event => {
+        const eventText = event.target.value;
+        setState(state => ({ ...state, page: 1, searchText: eventText }));
     };
     //component********************************************************************
     return (

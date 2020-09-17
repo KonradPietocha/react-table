@@ -3,6 +3,8 @@ import React from 'react';
 import TableHeader from '../TableHeaders/TableHeaders';
 import PaginationFooter from '../PaginationFooter/PaginationFooter';
 import SearchInput from '../SearchInput/SearchInput';
+//functions
+import { getDataFromSearch } from '../../shared/functions/getDataFromSearch';
 
 const style = {
     table: {
@@ -19,12 +21,12 @@ export default function Table(props) {
 
     const rowsEnd = state.rowsPerPage * state.page;
     const rowsStart = rowsEnd - state.rowsPerPage;
+    const processedArray = getDataFromSearch(state.searchText, arrayForTable);
 
     return (
         <>
             <SearchInput
                 handleSearch={handleSearch}
-                arrayForTable={arrayForTable}
             />
             <table style={style.table}>
                 <thead>
@@ -36,20 +38,20 @@ export default function Table(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {arrayForTable.slice(rowsStart, rowsEnd).map((value, key) => (
-                        <tr key={key}>
-                            <td>{state.data.date}</td>
-                            <td>{state.data.base}</td>
-                            <td>{value.currencyCode}</td>
-                            <td>{value.value}</td>
-                        </tr>
-                    ))}
+                    {processedArray.slice(rowsStart, rowsEnd).map((value, key) => (
+                            <tr key={key}>
+                                <td>{state.data.date}</td>
+                                <td>{state.data.base}</td>
+                                <td>{value.currencyCode}</td>
+                                <td>{value.value}</td>
+                            </tr>
+                        ))}
                 </tbody>
             </table>
             <PaginationFooter
                 handlePagination={handlePagination}
                 state={state}
-                arrayLength={arrayForTable.length}
+                arrayLength={processedArray.length}
             />
         </>
     );
