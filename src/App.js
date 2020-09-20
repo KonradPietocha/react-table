@@ -7,6 +7,7 @@ import { urlCurrencyLatest } from './shared/urls';
 import { getDataForTable } from './shared/functions/getDataForTable';
 import { fetchData } from './shared/functions/fetchData';
 import { flipPage } from './shared/functions/flipPage';
+import { switchSorting } from './shared/functions/sortObjects';
 //images
 import gold from './images/gold-gradient-background.png';
 //style
@@ -23,8 +24,8 @@ function App() {
         page: 1,
         rowsPerPage: 10,
         searchText: "",
-        sortingKey: null,
-        sorting: null
+        sortingKey: "none",
+        sorting: "none"
     });
     //functions**************************************************************
     useEffect(() => {
@@ -35,14 +36,14 @@ function App() {
     }, []);
 
     const handleSorting = rowKey => {
-        console.log(rowKey);
+        return switchSorting(state, rowKey, setState);
     };
     const handlePagination = (paging, arrayLength) => {
-        flipPage(paging, setState, arrayLength);
+        return flipPage(paging, setState, arrayLength);
     };
     const handleSearch = event => {
         const eventText = event.target.value;
-        setState(state => ({ ...state, page: 1, searchText: eventText }));
+        return setState(state => ({ ...state, page: 1, searchText: eventText }));
     };
     //component********************************************************************
     return (

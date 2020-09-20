@@ -5,14 +5,14 @@ import PaginationFooter from '../PaginationFooter/PaginationFooter';
 import SearchInput from '../SearchInput/SearchInput';
 //functions
 import { getDataFromSearch } from '../../shared/functions/getDataFromSearch';
-
+import { sortObjects } from '../../shared/functions/sortObjects';
+//style
 const style = {
     table: {
         width: "90vw"
     },
     numCell: {
-        display: "flex",
-        justifyContent: "flex-end"
+        textAlign: "end"
     }
 };
 
@@ -22,6 +22,7 @@ export default function Table(props) {
     const rowsEnd = state.rowsPerPage * state.page;
     const rowsStart = rowsEnd - state.rowsPerPage;
     const processedArray = getDataFromSearch(state.searchText, arrayForTable);
+    if (processedArray !== []) sortObjects(state, processedArray);
 
     return (
         <>
@@ -43,7 +44,7 @@ export default function Table(props) {
                                 <td>{state.data.date}</td>
                                 <td>{state.data.base}</td>
                                 <td>{value.currencyCode}</td>
-                                <td>{value.value}</td>
+                                <td style={style.numCell}>{value.value.toFixed(2)}</td>
                             </tr>
                         ))}
                 </tbody>

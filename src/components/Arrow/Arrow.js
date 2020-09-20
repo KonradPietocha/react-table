@@ -5,14 +5,10 @@ const style = {
         display: "none"
     },
     up: {
-        display: "inline-block",
-        padding: "10px",
-        transform: "rotate(-90deg)"
+        transform: "rotate(-90deg)",
     },
     down: {
-        display: "inline-block",
-        padding: "10px",
-        transform: "rotate(90deg)"
+        transform: "rotate(90deg)",
     }
 };
 let arrowStyle = style.none;
@@ -35,7 +31,7 @@ export default function Arrow(props) {
     return (
         <>
             <span style={arrowStyle}>
-                >
+                {">"}
             </span>
         </>
     );
