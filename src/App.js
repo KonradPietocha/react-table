@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 //components
 import CurrencyPage from './components/CurrencyPage';
 //url
@@ -32,7 +32,8 @@ function App() {
         rowsPerPage: 10,
         searchText: "",
         sortingKey: "none",
-        sorting: "none"
+        sorting: "none",
+        mobileMode: true
     });
     //functions**************************************************************
     useEffect(() => {
@@ -40,6 +41,19 @@ function App() {
             fetchData(urlCurrencyLatest, getDataForTable, setState);
         };
         return;
+    }, []);
+    useLayoutEffect(() => {
+        const updateSize = () => {
+            if (window.innerWidth < 600) {
+                return setState(state => ({ ...state, mobileMode: true }))
+            };
+            if (window.innerWidth > 600) {
+                return setState(state => ({ ...state, mobileMode: false }))
+            };
+        };
+        updateSize();
+        window.addEventListener('resize', updateSize);
+        return () => window.removeEventListener('resize', updateSize);
     }, []);
 
     const handleSorting = rowKey => {

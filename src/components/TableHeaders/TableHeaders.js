@@ -31,32 +31,40 @@ export default function TableHeader(props) {
 
     return (
         <>
-            <th
-                style={{ ...style.header, ...style.headerLeft }}
-                onClick={() => handleSorting("date")}
-            >
-                <div style={style.headerChildren}>
-                    Stock exchange date
+            {state.mobileMode ? null :
+                <th
+                    style={{ ...style.header, ...style.headerLeft }}
+                    onClick={() => handleSorting("date")}
+                >
+                    <div style={style.headerChildren}>
+                        Stock exchange date
                     {state.sortingKey === "date" ?
-                        <Arrow sorting={state.sorting} />
-                        : <span style={style.filler}></span>
-                    }
-                </div>
-            </th>
-            <th
-                style={style.header}
-                onClick={() => handleSorting("base")}
-            >
-                <div style={style.headerChildren}>
-                    Base currency
+                            <Arrow sorting={state.sorting} />
+                            : <span style={style.filler}></span>
+                        }
+                    </div>
+                </th>
+            }
+            {state.mobileMode ? null :
+                <th
+                    style={style.header}
+                    onClick={() => handleSorting("base")}
+                >
+                    <div style={style.headerChildren}>
+                        Base currency
                     {state.sortingKey === "base" ?
-                        <Arrow sorting={state.sorting} />
-                        : <span style={style.filler}></span>
-                    }
-                </div>
-            </th>
+                            <Arrow sorting={state.sorting} />
+                            : <span style={style.filler}></span>
+                        }
+                    </div>
+                </th>
+            }
             <th
-                style={style.header}
+                style={
+                    state.mobileMode ?
+                        { ...style.header, ...style.headerLeft }
+                        : style.header
+                }
                 onClick={() => handleSorting("currencyCode")}
             >
                 <div style={style.headerChildren}>

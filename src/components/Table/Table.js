@@ -35,6 +35,12 @@ export default function Table(props) {
             />
             <table style={style.table}>
                 <thead>
+                    {state.mobileMode ?
+                        <tr>
+                            <th>Date: {state.data.date}</th>
+                            <th>Base: {state.data.base}</th>
+                        </tr> : null
+                    }
                     <tr>
                         <TableHeader
                             handleSorting={handleSorting}
@@ -45,12 +51,16 @@ export default function Table(props) {
                 <tbody>
                     {processedArray.slice(rowsStart, rowsEnd).map((value, key) => (
                         <tr key={key}>
-                            <td style={style.tableCell}>
-                                {state.data.date}
-                            </td>
-                            <td style={style.tableCell}>
-                                {state.data.base}
-                            </td>
+                            {state.mobileMode ? null :
+                                <td style={style.tableCell}>
+                                    {state.data.date}
+                                </td>
+                            }
+                            {state.mobileMode ? null :
+                                <td style={style.tableCell}>
+                                    {state.data.base}
+                                </td>
+                            }
                             <td style={style.tableCell}>
                                 {value.currencyCode}
                             </td>
