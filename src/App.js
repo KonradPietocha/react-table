@@ -13,7 +13,14 @@ import gold from './images/gold-gradient-background.png';
 //style
 const style = {
     appStyle: {
-        backgroundImage: `url(${gold})`
+        backgroundImage: `url(${gold})`,
+        minHeight: "100vh",
+        fontFamily: '"Parisienne", cursive',
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        fontSize: "calc(10px + 2vmin)",
+        color: "#282c34"
     }
 }
 

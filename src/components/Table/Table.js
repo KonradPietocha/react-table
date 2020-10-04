@@ -11,6 +11,10 @@ const style = {
     table: {
         width: "90vw"
     },
+    tableCell: {
+        border: "1px solid black",
+        fontSize: "20px"
+    },
     numCell: {
         textAlign: "end"
     }
@@ -40,13 +44,21 @@ export default function Table(props) {
                 </thead>
                 <tbody>
                     {processedArray.slice(rowsStart, rowsEnd).map((value, key) => (
-                            <tr key={key}>
-                                <td>{state.data.date}</td>
-                                <td>{state.data.base}</td>
-                                <td>{value.currencyCode}</td>
-                                <td style={style.numCell}>{value.value.toFixed(2)}</td>
-                            </tr>
-                        ))}
+                        <tr key={key}>
+                            <td style={style.tableCell}>
+                                {state.data.date}
+                            </td>
+                            <td style={style.tableCell}>
+                                {state.data.base}
+                            </td>
+                            <td style={style.tableCell}>
+                                {value.currencyCode}
+                            </td>
+                            <td style={{ ...style.numCell, ...style.tableCell }}>
+                                {value.value.toFixed(2)}
+                            </td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
             <PaginationFooter

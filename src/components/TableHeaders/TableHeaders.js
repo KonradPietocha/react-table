@@ -7,7 +7,9 @@ const style = {
         paddingTop: "20px",
         cursor: "pointer",
         backgroundColor: "darkslategrey",
-        color: "white"
+        color: "white",
+        border: "1px solid black",
+        fontSize: "20px"
     },
     headerChildren: {
         display: "flex",
