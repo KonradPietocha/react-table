@@ -15,7 +15,6 @@ const style = {
     appStyle: {
         backgroundImage: `url(${gold})`,
         minHeight: "100vh",
-        fontFamily: '"Parisienne", cursive',
         display: "flex",
         flexDirection: "column",
         alignItems: "center",

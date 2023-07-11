@@ -15,8 +15,12 @@ const style = {
         border: "1px solid black",
         fontSize: "20px"
     },
+    nonNumCell: {
+        textAlign: "center"
+    },
     numCell: {
-        textAlign: "end"
+        textAlign: "end",
+        paddingRight: "15px"
     }
 };
 
@@ -52,16 +56,16 @@ export default function Table(props) {
                     {processedArray.slice(rowsStart, rowsEnd).map((value, key) => (
                         <tr key={key}>
                             {state.mobileMode ? null :
-                                <td style={style.tableCell}>
+                                <td style={{ ...style.nonNumCell, ...style.tableCell }}>
                                     {state.data.date}
                                 </td>
                             }
                             {state.mobileMode ? null :
-                                <td style={style.tableCell}>
+                                <td style={{ ...style.nonNumCell, ...style.tableCell }}>
                                     {state.data.base}
                                 </td>
                             }
-                            <td style={style.tableCell}>
+                            <td style={{ ...style.nonNumCell, ...style.tableCell }}>
                                 {value.currencyCode}
                             </td>
                             <td style={{ ...style.numCell, ...style.tableCell }}>

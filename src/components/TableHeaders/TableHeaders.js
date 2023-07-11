@@ -21,8 +21,8 @@ const style = {
     headerRight: {
         borderTopRightRadius: "25px"
     },
-    filler: {
-        height: "27px"
+    valueStyle: {
+        width: "200px"
     }
 };
 
@@ -38,10 +38,7 @@ export default function TableHeader(props) {
                 >
                     <div style={style.headerChildren}>
                         Stock exchange date
-                    {state.sortingKey === "date" ?
-                            <Arrow sorting={state.sorting} />
-                            : <span style={style.filler}></span>
-                        }
+                        <Arrow sorting={state.sortingKey === "date" ? state.sorting : null} />
                     </div>
                 </th>
             }
@@ -52,10 +49,7 @@ export default function TableHeader(props) {
                 >
                     <div style={style.headerChildren}>
                         Base currency
-                    {state.sortingKey === "base" ?
-                            <Arrow sorting={state.sorting} />
-                            : <span style={style.filler}></span>
-                        }
+                        <Arrow sorting={state.sortingKey === "base" ? state.sorting : null} />
                     </div>
                 </th>
             }
@@ -69,22 +63,16 @@ export default function TableHeader(props) {
             >
                 <div style={style.headerChildren}>
                     Currency
-                    {state.sortingKey === "currencyCode" ?
-                        <Arrow sorting={state.sorting} />
-                        : <span style={style.filler}></span>
-                    }
+                    <Arrow sorting={state.sortingKey === "currencyCode" ? state.sorting : null} />
                 </div>
             </th>
             <th
-                style={{ ...style.header, ...style.headerRight }}
+                style={{ ...style.header, ...style.headerRight, ...style.valueStyle }}
                 onClick={() => handleSorting("value")}
             >
                 <div style={style.headerChildren}>
                     Value
-                    {state.sortingKey === "value" ?
-                        <Arrow sorting={state.sorting} />
-                        : <span style={style.filler}></span>
-                    }
+                    <Arrow sorting={state.sortingKey === "value" ? state.sorting : null} />
                 </div>
             </th>
         </>

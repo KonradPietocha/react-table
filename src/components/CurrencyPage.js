@@ -27,10 +27,8 @@ function CurrencyPage(props) {
         <>
             <h1>Currency table</h1>
             <p style={style.paragraph}>
-                With a growing number of options for your needs<br />
-                Search what you want<br />
-                Sort columns<br />
-                Change page
+                Currently, the base currency is the euro.<br />
+                More options and possibilities coming soon.
             </p>
             <Table
                 arrayForTable={dataForTable}

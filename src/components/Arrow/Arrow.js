@@ -1,38 +1,18 @@
 import React from 'react';
 
 const style = {
-    none: {
-        display: "none"
-    },
-    up: {
-        transform: "rotate(-90deg)",
-    },
-    down: {
-        transform: "rotate(90deg)",
-    }
+    height: '25px'
 };
-let arrowStyle = style.none;
 
 export default function Arrow(props) {
     const { sorting } = props;
 
     switch (sorting) {
         case "desc":
-            arrowStyle = style.up;
-            break;
+            return <div style={style}>&uarr;</div>;
         case "asc":
-            arrowStyle = style.down;
-            break;
+            return <div style={style}>&darr;</div>;
         default:
-            arrowStyle = style.none;
-            break;
+            return <div style={style}></div>;
     }
-
-    return (
-        <>
-            <span style={arrowStyle}>
-                {">"}
-            </span>
-        </>
-    );
 }
