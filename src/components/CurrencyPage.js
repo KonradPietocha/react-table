@@ -13,7 +13,8 @@ function CurrencyPage(props) {
         state,
         handleSorting,
         handlePagination,
-        handleSearch
+        handleSearch,
+        handleSelect
     } = props;
 
     const dataForTable = [];
@@ -27,7 +28,7 @@ function CurrencyPage(props) {
         <>
             <h1>Currency table</h1>
             <p style={style.paragraph}>
-                Currently, the base currency is the euro.<br />
+                The latest data for the {state.data.base} currency.<br />
                 More options and possibilities coming soon.
             </p>
             <Table
@@ -36,6 +37,7 @@ function CurrencyPage(props) {
                 handleSorting={handleSorting}
                 handlePagination={handlePagination}
                 handleSearch={handleSearch}
+                handleSelect={handleSelect}
             />
         </>
     );

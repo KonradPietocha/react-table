@@ -6,6 +6,7 @@ import SearchInput from '../SearchInput/SearchInput';
 //functions
 import { getDataFromSearch } from '../../shared/functions/getDataFromSearch';
 import { sortObjects } from '../../shared/functions/sortObjects';
+import SelectInput from '../SelectInput/SelectInput';
 //style
 const style = {
     table: {
@@ -25,7 +26,7 @@ const style = {
 };
 
 export default function Table(props) {
-    const { arrayForTable, state, handleSorting, handlePagination, handleSearch } = props;
+    const { arrayForTable, state, handleSorting, handlePagination, handleSearch, handleSelect } = props;
 
     const rowsEnd = state.rowsPerPage * state.page;
     const rowsStart = rowsEnd - state.rowsPerPage;
@@ -34,6 +35,10 @@ export default function Table(props) {
 
     return (
         <>
+            <SelectInput
+                data={state.data}
+                handleSelect={handleSelect}
+            />
             <SearchInput
                 handleSearch={handleSearch}
             />

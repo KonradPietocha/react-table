@@ -18,7 +18,7 @@ export default function SearchInput(props) {
         <form
             style={style.form}
             onSubmit={event => event.preventDefault()}>
-            <label>Search:
+            <label>Search:&nbsp;
                 <input 
                     style={style.input}
                     onKeyUp={event => handleSearch(event)}

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useLayoutEffect } from 'react';
 //components
 import CurrencyPage from './components/CurrencyPage';
 //url
-import { urlCurrencyLatest } from './shared/urls';
+import { urlCurrencyLatest, urlCurrencyLatestBase } from './shared/urls';
 //functions
 import { getDataForTable } from './shared/functions/getDataForTable';
 import { fetchData } from './shared/functions/fetchData';
@@ -65,6 +65,10 @@ function App() {
         const eventText = event.target.value;
         return setState(state => ({ ...state, page: 1, searchText: eventText }));
     };
+    const handleSelect = event => {
+        const eventText = event.target.value;
+        fetchData(urlCurrencyLatestBase + eventText, getDataForTable, setState);
+    };
     //component********************************************************************
     return (
         <div
@@ -76,6 +80,7 @@ function App() {
                 handleSorting={handleSorting}
                 handlePagination={handlePagination}
                 handleSearch={handleSearch}
+                handleSelect={handleSelect}
             />
         </div>
     );
