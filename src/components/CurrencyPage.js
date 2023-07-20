@@ -27,10 +27,14 @@ function CurrencyPage(props) {
     return (
         <>
             <h1>Currency table</h1>
-            <p style={style.paragraph}>
-                The latest data for the {state.data.base} currency.<br />
-                More options and possibilities coming soon.
-            </p>
+            {state.data.isDemo
+                ? <p style={style.paragraph}>
+                    Oops, something went wrong with the download. The presented data is a demo.
+                </p>
+                : <p style={style.paragraph}>
+                    The latest data for the {state.data.base} currency.
+                </p>
+            }
             <Table
                 arrayForTable={dataForTable}
                 state={state}

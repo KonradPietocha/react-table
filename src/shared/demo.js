@@ -1,4 +1,5 @@
 export const demoData = {
+  "isDemo": true,
   "base": "EUR",
   "date": "2022-10-18",
   "rates": {

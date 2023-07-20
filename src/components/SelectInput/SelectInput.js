@@ -23,13 +23,13 @@ export default function SelectInput(props) {
                     style={style.input}
                     defaultValue={data.base}
                     onChange={event => handleSelect(event)}>
-                    {Object.keys(data.rates).map((value, key) =>
+                    {data.rates ? Object.keys(data.rates).map((value, key) =>
                         <option
                             key={key}
                             value={value}>
                             {value}
                         </option>
-                    )}
+                    ) : null}
                 </select>
             </label>
         </form>

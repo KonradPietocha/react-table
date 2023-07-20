@@ -83,7 +83,7 @@ export default function Table(props) {
             <PaginationFooter
                 handlePagination={handlePagination}
                 state={state}
-                arrayLength={processedArray.length}
+                pageLimit={Math.ceil(processedArray.length / 10)}
             />
         </>
     );

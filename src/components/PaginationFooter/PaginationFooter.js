@@ -29,25 +29,48 @@ const style = {
 };
 
 export default function PaginationFooter(props) {
-    const { handlePagination, state, arrayLength } = props;
+    const { handlePagination, state, pageLimit } = props;
+
+    const getPagesArray = (limit) => {
+        const pages = [];
+        for (let i = 1; i <= limit; i++) {
+            pages.push(i)
+        }
+        return pages;
+    };
 
     return (
         <>
             <div style={style.footer}>
                 <div
                     style={{ ...style.footerBtns, ...style.footerLeft }}
-                    onClick={() => handlePagination("prev", arrayLength)}
+                    onClick={() => handlePagination("prev", pageLimit)}
                 >
                     Previous
                     </div>
                 <div
                     style={style.footerPage}
                 >
-                    Page: {state.page}
+                    <form
+                        onSubmit={event => event.preventDefault()}>
+                        <label>Page:&nbsp;
+                            <select
+                                value={state.page}
+                                onChange={event => handlePagination(event.target.value, pageLimit)}>
+                                {pageLimit ? getPagesArray(pageLimit).map((value, key) =>
+                                    <option
+                                        key={key}
+                                        value={value}>
+                                        {value}
+                                    </option>
+                                ) : null}
+                            </select>
+                        </label>
+                    </form>
                 </div>
                 <div
                     style={{ ...style.footerBtns, ...style.footerRight }}
-                    onClick={() => handlePagination("next", arrayLength)}
+                    onClick={() => handlePagination("next", pageLimit)}
                 >
                     Next
                     </div>
