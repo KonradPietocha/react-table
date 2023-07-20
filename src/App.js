@@ -56,6 +56,7 @@ function App() {
     }, []);
 
     const handleSorting = rowKey => {
+        setState(state => ({ ...state, page: 1 }));
         return switchSorting(state, rowKey, setState);
     };
     const handlePagination = (paging, arrayLength) => {
