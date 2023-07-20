@@ -21,7 +21,7 @@ export default function SelectInput(props) {
             <label>Change base:&nbsp;
                 <select
                     style={style.input}
-                    defaultValue={data.base}
+                    value={data.base}
                     onChange={event => handleSelect(event)}>
                     {data.rates ? Object.keys(data.rates).map((value, key) =>
                         <option
