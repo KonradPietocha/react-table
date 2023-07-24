@@ -7,7 +7,7 @@ import { urlCurrencyLatest, urlCurrencyLatestBase } from './shared/urls';
 import { getDataForTable } from './shared/functions/getDataForTable';
 import { fetchData } from './shared/functions/fetchData';
 import { flipPage } from './shared/functions/flipPage';
-import { switchSorting } from './shared/functions/sortObjects';
+import { SORTING_TYPE, switchSorting } from './shared/functions/sortObjects';
 //images
 import gold from './images/gold-gradient-background.png';
 //style
@@ -30,9 +30,10 @@ function App() {
         page: 1,
         rowsPerPage: 10,
         searchText: "",
-        sortingKey: "none",
-        sorting: "none",
-        mobileMode: true
+        sortingKey: SORTING_TYPE.NONE,
+        sorting: SORTING_TYPE.NONE,
+        mobileMode: true,
+        isLoading: false
     });
     //functions**************************************************************
     useEffect(() => {

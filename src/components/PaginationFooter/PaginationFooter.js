@@ -1,4 +1,5 @@
 import React from 'react';
+import { PAGING_TYPE } from '../../shared/functions/flipPage';
 
 const style = {
     footer: {
@@ -44,7 +45,7 @@ export default function PaginationFooter(props) {
             <div style={style.footer}>
                 <div
                     style={{ ...style.footerBtns, ...style.footerLeft }}
-                    onClick={() => handlePagination("prev", pageLimit)}
+                    onClick={() => handlePagination(PAGING_TYPE.PREV, pageLimit)}
                 >
                     Previous
                     </div>
@@ -70,7 +71,7 @@ export default function PaginationFooter(props) {
                 </div>
                 <div
                     style={{ ...style.footerBtns, ...style.footerRight }}
-                    onClick={() => handlePagination("next", pageLimit)}
+                    onClick={() => handlePagination(PAGING_TYPE.NEXT, pageLimit)}
                 >
                     Next
                     </div>

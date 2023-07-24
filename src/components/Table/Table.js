@@ -37,6 +37,7 @@ export default function Table(props) {
         <>
             <SelectInput
                 data={state.data}
+                isLoading={state.isLoading}
                 handleSelect={handleSelect}
             />
             <SearchInput
@@ -58,26 +59,34 @@ export default function Table(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {processedArray.slice(rowsStart, rowsEnd).map((value, key) => (
-                        <tr key={key}>
-                            {state.mobileMode ? null :
+                    {processedArray.length
+                        ? processedArray.slice(rowsStart, rowsEnd).map((value, key) => (
+                            <tr key={key}>
+                                {state.mobileMode ? null :
+                                    <td style={{ ...style.nonNumCell, ...style.tableCell }}>
+                                        {state.data.date}
+                                    </td>
+                                }
+                                {state.mobileMode ? null :
+                                    <td style={{ ...style.nonNumCell, ...style.tableCell }}>
+                                        {state.data.base}
+                                    </td>
+                                }
                                 <td style={{ ...style.nonNumCell, ...style.tableCell }}>
-                                    {state.data.date}
+                                    {value.currencyCode}
                                 </td>
-                            }
-                            {state.mobileMode ? null :
-                                <td style={{ ...style.nonNumCell, ...style.tableCell }}>
-                                    {state.data.base}
+                                <td style={{ ...style.numCell, ...style.tableCell }}>
+                                    {value.value.toFixed(2)}
                                 </td>
-                            }
-                            <td style={{ ...style.nonNumCell, ...style.tableCell }}>
-                                {value.currencyCode}
-                            </td>
-                            <td style={{ ...style.numCell, ...style.tableCell }}>
-                                {value.value.toFixed(2)}
+                            </tr>
+                        ))
+                        : <tr>
+                            <td style={style.nonNumCell}
+                                colSpan={state.mobileMode ? 2 : 4}>
+                                <b>Loading...</b>
                             </td>
                         </tr>
-                    ))}
+                    }
                 </tbody>
             </table>
             <PaginationFooter

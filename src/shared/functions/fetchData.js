@@ -2,6 +2,7 @@ import { demoData } from "../demo";
 import { API_KEY } from '../urls';
 
 export const fetchData = (url, dealWithTheResult, setState) => {
+    setState(state => ({ ...state, isLoading: true }));
     fetch(url, {
         method: "GET",
         headers: {

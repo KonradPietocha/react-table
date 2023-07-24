@@ -12,25 +12,32 @@ const style = {
 };
 
 export default function SelectInput(props) {
-    const { data, handleSelect } = props;
+    const { data, isLoading, handleSelect } = props;
 
     return (
         <form
             style={style.form}
             onSubmit={event => event.preventDefault()}>
             <label>Change base:&nbsp;
-                <select
-                    style={style.input}
-                    value={data.base}
-                    onChange={event => handleSelect(event)}>
-                    {data.rates ? Object.keys(data.rates).map((value, key) =>
-                        <option
-                            key={key}
-                            value={value}>
-                            {value}
-                        </option>
-                    ) : null}
-                </select>
+                {isLoading
+                    ? <input
+                        readOnly
+                        style={style.input}
+                        value={"Loading..."}/>
+                    : <select
+                        style={style.input}
+                        value={data.base}
+                        onChange={event => handleSelect(event)}>
+                        {data.rates ? Object.keys(data.rates).map((value, key) =>
+                            <option
+                                key={key}
+                                value={value}>
+                                {value}
+                            </option>
+                        ) : null}
+                    </select>
+                }
+            
             </label>
         </form>
     );

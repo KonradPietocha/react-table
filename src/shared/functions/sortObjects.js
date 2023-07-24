@@ -1,14 +1,20 @@
+export const SORTING_TYPE = {
+    ASC: "asc",
+    DESC: "desc",
+    NONE: "none"
+};
+
 export const switchSorting = (state, rowKey, setState) => {
     const sortDirection = state.sorting;
     switch (sortDirection) {
-        case "none":
-            return setState(state => ({ ...state, sortingKey: rowKey, sorting: "asc" }));
-        case "asc":
-            return setState(state => ({ ...state, sortingKey: rowKey, sorting: "desc" }));
-        case "desc":
-            return setState(state => ({ ...state, sortingKey: rowKey, sorting: "asc" }));
+        case SORTING_TYPE.NONE:
+            return setState(state => ({ ...state, sortingKey: rowKey, sorting: SORTING_TYPE.ASC }));
+        case SORTING_TYPE.ASC:
+            return setState(state => ({ ...state, sortingKey: rowKey, sorting: SORTING_TYPE.DESC }));
+        case SORTING_TYPE.DESC:
+            return setState(state => ({ ...state, sortingKey: rowKey, sorting: SORTING_TYPE.ASC }));
             default:
-        return setState(state => ({ ...state, sortingKey: "none", sorting: "none" }));
+        return setState(state => ({ ...state, sortingKey: SORTING_TYPE.NONE, sorting: SORTING_TYPE.NONE }));
     };
 };
 
@@ -46,9 +52,9 @@ export const sortObjects = (state, arrOfObj) => {
     const sortDirection = state.sorting;
     const key = state.sortingKey;
     switch(sortDirection) {
-        case "asc":
+        case SORTING_TYPE.ASC:
             return sortAscending(arrOfObj, key);
-        case "desc":
+        case SORTING_TYPE.DESC:
             return sortDescending(arrOfObj, key);
         default:
             return arrOfObj;
