@@ -8,6 +8,12 @@ const style = {
     }
 };
 
+const mapDataToCurrencyArray = (data) => {
+    return data
+        ? Object.entries(data).map(([key, value]) => ({ currencyCode: key, value: value }))
+        : [];
+}
+
 function CurrencyPage(props) {
     const {
         state,
@@ -16,13 +22,6 @@ function CurrencyPage(props) {
         handleSearch,
         handleSelect
     } = props;
-
-    const dataForTable = [];
-    if (state.data.rates) {
-        for (const [key, value] of Object.entries(state.data.rates)) {
-            dataForTable.push({ currencyCode: key, value: value });
-        }
-    };
 
     return (
         <>
@@ -36,7 +35,7 @@ function CurrencyPage(props) {
                 </p>
             }
             <Table
-                arrayForTable={dataForTable}
+                arrayForTable={mapDataToCurrencyArray(state.data.rates)}
                 state={state}
                 handleSorting={handleSorting}
                 handlePagination={handlePagination}

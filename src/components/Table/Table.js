@@ -4,8 +4,7 @@ import TableHeader from '../TableHeaders/TableHeaders';
 import PaginationFooter from '../PaginationFooter/PaginationFooter';
 import SearchInput from '../SearchInput/SearchInput';
 //functions
-import { getDataFromSearch } from '../../shared/functions/getDataFromSearch';
-import { sortObjects } from '../../shared/functions/sortObjects';
+import { filterDataBySearchValue } from '../../shared/functions/filterDataBySearchValue';
 import SelectInput from '../SelectInput/SelectInput';
 //style
 const style = {
@@ -30,8 +29,7 @@ export default function Table(props) {
 
     const rowsEnd = state.rowsPerPage * state.page;
     const rowsStart = rowsEnd - state.rowsPerPage;
-    const processedArray = getDataFromSearch(state.searchText, arrayForTable);
-    if (processedArray !== []) sortObjects(state, processedArray);
+    const processedArray = filterDataBySearchValue(state, arrayForTable);
 
     return (
         <>
