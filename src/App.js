@@ -73,7 +73,7 @@ function App() {
     };
     //component********************************************************************
     return (
-        <div
+        <main
             className="App"
             style={style.appStyle}
         >
@@ -84,7 +84,7 @@ function App() {
                 handleSearch={handleSearch}
                 handleSelect={handleSelect}
             />
-        </div>
+        </main>
     );
 }
 
