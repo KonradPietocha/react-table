@@ -1,12 +1,11 @@
 {
-  "main.js": "/react-table/static/js/main.15db670a.chunk.js",
-  "main.js.map": "/react-table/static/js/main.15db670a.chunk.js.map",
-  "runtime~main.js": "/react-table/static/js/runtime~main.15ef8938.js",
-  "runtime~main.js.map": "/react-table/static/js/runtime~main.15ef8938.js.map",
-  "static/js/2.7ee30dba.chunk.js": "/react-table/static/js/2.7ee30dba.chunk.js",
-  "static/js/2.7ee30dba.chunk.js.map": "/react-table/static/js/2.7ee30dba.chunk.js.map",
-  "index.html": "/react-table/index.html",
-  "precache-manifest.8c53c8554f877a65be54d556067c97c2.js": "/react-table/precache-manifest.8c53c8554f877a65be54d556067c97c2.js",
-  "service-worker.js": "/react-table/service-worker.js",
-  "static/media/gold-gradient-background.png": "/react-table/static/media/gold-gradient-background.44159229.png"
+  "files": {
+    "main.js": "/react-table/static/js/main.3f2d7268.js",
+    "static/media/gold-gradient-background.png": "/react-table/static/media/gold-gradient-background.7f5d55d5f662632c25f7.png",
+    "index.html": "/react-table/index.html",
+    "main.3f2d7268.js.map": "/react-table/static/js/main.3f2d7268.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.3f2d7268.js"
+  ]
 }
