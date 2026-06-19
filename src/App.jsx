@@ -65,6 +65,7 @@ function App() {
     };
     const handleSearch = event => {
         const eventText = event.target.value;
+        if (!eventText?.replaceAll(/\s/g,'')) return;
         return setState(state => ({ ...state, page: 1, searchText: eventText }));
     };
     const handleSelect = event => {

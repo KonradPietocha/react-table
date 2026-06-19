@@ -10,10 +10,10 @@ export const fetchData = (url, dealWithTheResult, setState) => {
         }
     })
         .then(data => {
-            if (data.ok) {
+            if (data?.ok) {
                 const response = data.json();
                 response.then(result => {
-                    if (!result.success) {
+                    if (!result?.success) {
                         dealWithTheResult(demoData, setState);
                     } else {
                         dealWithTheResult(result, setState);
@@ -24,7 +24,7 @@ export const fetchData = (url, dealWithTheResult, setState) => {
             }
         })
         .catch(err => {
-            console.error('TEST', err);
+            console.error('FETCH ERROR:', err);
             dealWithTheResult(demoData, setState);
         });
 };
